@@ -10,7 +10,27 @@ module IntersectPoint
 			if s1 >= s2
 				return 'Change your speeds. the two cars will never meet!'
 			else
-				return "Alter your values. The cars should meet at a point within 1000km"
+				# setting a general case i.e. the speeds of the cars are manually set.
+				time_car1 = t + 2
+
+				# now we have the starting times of both cars
+
+				# calculate the distance (distance = speed * time)
+
+				distance_car1 = s1 * time_car1
+				distance_car2 = s2 * t
+
+				# find the POSITIVE difference between the two distances
+				meetingPoint = (distance_car1 - distance_car2).abs
+
+				# the abs function gets the absolute value of the difference(positive value)
+
+				# create another check to make sure that the two cars meet within the stipulated distance i.e. 1000km
+				if meetingPoint <= 1000
+					return meetingPoint
+				else
+					return "Alter your values. The cars should meet at a point within 1000km"
+				end
 			end
 		end
 	end
